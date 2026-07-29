@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
@@ -47,19 +47,25 @@ export function RentalRequestDialog({
   const queryClient = useQueryClient();
   const [duration, setDuration] = useState(12);
 
+  // Lazy initialiser: reading the clock during render would be impure, and
+  // this only needs to be resolved once per mount.
+  const [minMoveInDate] = useState(() =>
+    new Date(Date.now() + 86400000).toISOString().slice(0, 10)
+  );
+
   const {
     register,
+    control,
     handleSubmit,
     reset,
     setError,
-    watch,
     formState: { errors },
   } = useForm<RentalRequestInput, unknown, RentalRequestValues>({
     resolver: zodResolver(rentalRequestSchema),
     defaultValues: { durationMonths: 12, message: "" },
   });
 
-  const watchedDuration = watch("durationMonths");
+  const watchedDuration = useWatch({ control, name: "durationMonths" });
 
   const mutation = useMutation({
     mutationFn: (values: RentalRequestValues) =>
@@ -107,7 +113,7 @@ export function RentalRequestDialog({
               <Input
                 id="moveInDate"
                 type="date"
-                min={new Date(Date.now() + 86400000).toISOString().slice(0, 10)}
+                min={minMoveInDate}
                 aria-invalid={!!errors.moveInDate}
                 {...register("moveInDate")}
               />

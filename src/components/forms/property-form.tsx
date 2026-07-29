@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -57,7 +57,6 @@ export function PropertyForm({ property }: { property?: Property }) {
     control,
     handleSubmit,
     setError,
-    watch,
     formState: { errors },
   } = useForm<PropertyFormInput, unknown, PropertyFormValues>({
     resolver: zodResolver(propertySchema),
@@ -77,7 +76,7 @@ export function PropertyForm({ property }: { property?: Property }) {
     },
   });
 
-  const imageValues = watch("images");
+  const imageValues = useWatch({ control, name: "images" });
 
   const onSubmit = handleSubmit(async (values) => {
     const payload = {
