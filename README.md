@@ -11,6 +11,7 @@ listings and approve requests; admins moderate the whole platform.
 | | |
 | --- | --- |
 | **Live frontend** | https://rent-nest-ease.vercel.app |
+| **Demo video** | https://drive.google.com/file/d/178qdUh2Lf4cCaAg8DY1_hzYYge_F811P/view?usp=sharing |
 | **Backend API** | https://rent-nest-nurunnabi-jewels-projects.vercel.app |
 | **API docs (Swagger)** | https://rent-nest-nurunnabi-jewels-projects.vercel.app/api/docs |
 | **Frontend repo** | https://github.com/Nurunnabi87/rent-nest-ease |
