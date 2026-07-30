@@ -23,7 +23,14 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      {/* Dark is the intended first-visit look; the toggle only switches
+          light/dark, so system preference is deliberately not consulted. */}
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem={false}
+        disableTransitionOnChange
+      >
         <AuthProvider>
           {children}
           <Toaster richColors position="top-center" />
