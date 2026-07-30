@@ -2,6 +2,7 @@
 
 How the RentNest frontend consumes the backend API.
 
+- **Live frontend:** `https://rent-nest-ease.vercel.app`
 - **Backend base URL:** `https://rent-nest-nurunnabi-jewels-projects.vercel.app`
   (configurable via `NEXT_PUBLIC_API_URL`)
 - **API docs (Swagger):** `{BASE_URL}/api/docs`

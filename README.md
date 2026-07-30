@@ -10,9 +10,10 @@ listings and approve requests; admins moderate the whole platform.
 
 | | |
 | --- | --- |
-| **Live frontend** | _add your Vercel URL here after deploying_ |
+| **Live frontend** | https://rent-nest-ease.vercel.app |
 | **Backend API** | https://rent-nest-nurunnabi-jewels-projects.vercel.app |
 | **API docs (Swagger)** | https://rent-nest-nurunnabi-jewels-projects.vercel.app/api/docs |
+| **Frontend repo** | https://github.com/Nurunnabi87/rent-nest-ease |
 | **Backend repo** | https://github.com/Nurunnabi87/rent-nest |
 
 ## Test credentials
@@ -20,8 +21,10 @@ listings and approve requests; admins moderate the whole platform.
 | Role | Email | Password |
 | --- | --- | --- |
 | **Admin** | `admin@rentnest.com` | `admin123` |
-| Tenant | register a new account (role **Tenant**) | — |
-| Landlord | register a new account (role **Landlord**) | — |
+| Tenant | `demo.tenant@example.com` | `pass123` |
+| Landlord | `demo.landlord@example.com` | `pass123` |
+
+You can also register your own tenant or landlord account from `/auth/register`.
 
 Admin accounts cannot be created through the UI — the backend rejects `ADMIN`
 at registration, so use the seeded credentials above.
